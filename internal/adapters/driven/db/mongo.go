@@ -24,7 +24,12 @@ func NewMongoRepository(uri string) (*MongoRepository, error) {
 	}, nil
 }
 
-func (r *MongoRepository) Save(plant domain.Plant) error {
+func (r *MongoRepository) SavePlant(plant domain.Plant) error {
+	_, err := r.collection.InsertOne(context.TODO(), plant)
+	return err
+}
+
+func (r *MongoRepository) SaveMicroController(plant domain.Plant) error {
 	_, err := r.collection.InsertOne(context.TODO(), plant)
 	return err
 }
