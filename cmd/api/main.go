@@ -6,7 +6,7 @@ import (
 
 	"growgrid/internal/adapters/driven/db"
 	httpAdapter "growgrid/internal/adapters/driving/http"
-	"growgrid/internal/core/ports"
+	"growgrid/internal/core/service"
 )
 
 func main() {
@@ -15,6 +15,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	log.Default()
 	plantService := service.NewPlantService(repo)
 	handler := httpAdapter.NewHandler(plantService)
 	mux := http.NewServeMux()
