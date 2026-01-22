@@ -1,5 +1,5 @@
 package ports
 
-type plantService interface {
+type PlantService interface {
 	RegisterPlant(plantID string, microcontrollerID string)
 }
