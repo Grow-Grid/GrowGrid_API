@@ -10,5 +10,5 @@ type Plant struct {
 	MaxMoisture             float64
 	LastWatered             time.Time
 	CurrentStatus           string
-	AssignedMicroController MicroController
+	AssignedMicroController string
 }

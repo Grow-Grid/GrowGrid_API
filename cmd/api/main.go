@@ -5,12 +5,18 @@ import (
 	"net/http"
 
 	httpAdapter "growgrid/internal/adapters/driving/http"
-	"growgrid/internal/core/service"
 )
 
 func main() {
-	plantService := service.NewPlantService(repo)
-	handler := httpAdapter.NewHandler(plantService)
+	handler := httpAdapter.NewHandler()
 	mux := http.NewServeMux()
-	handler.SetupRoutes(mux)
+	handler.RegisterRoutes(mux)
+	server := &http.Server{
+		Addr:    ":8080",
+		Handler: mux,
+	}
+	log.Println("INICIADO")
+	if err := server.ListenAndServe(); err != nil {
+		log.Fatal(err)
+	}
 }

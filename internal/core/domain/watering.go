@@ -1,9 +1,5 @@
 package domain
 
-import (
-	"time"
-)
-
 type WateringParameters struct {
 	MinHumidityThreshold float64 `json:"min_humidity_threshold"`
 	CheckIntervalSeconds int     `json:"check_interval_seconds"`
@@ -27,9 +23,4 @@ func (e *WaterEngine) CalculateDynamicConstants(p Plant) (slope float64, minTemp
 		minTemp = 9
 	}
 	return slope, minTemp
-}
-
-func (e *WaterEngine) GetSafeWateringThreshold(p Plant, currentTemp float64, e WaterEngine) (float64, error) {
-	//	if currentTemp <
-	return 0, nil
 }
