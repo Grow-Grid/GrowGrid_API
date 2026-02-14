@@ -15,8 +15,8 @@ func main() {
 		Addr:    ":8080",
 		Handler: mux,
 	}
-	log.Println("INICIADO")
 	if err := server.ListenAndServe(); err != nil {
 		log.Fatal(err)
 	}
+	log.Println("Server started succesfully")
 }
